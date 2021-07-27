@@ -23,18 +23,17 @@ class App extends React.Component {
           <IsLoadingAndError>
             <Header />
             <Switch>
+              <Route exact path="/">
             {!this.props.auth0.isAuthenticated &&
               <Login />
             }
-            </Switch>
-            <Switch>
             {this.props.auth0.isAuthenticated &&
-              <Route exact path="/">
                 <BestBooks /> 
-                {/* TODO: if the user is logged in, render the `BestBooks` component, if they are not, render the `Login` component */}
-              </Route>
+                /* TODO: if the user is logged in, render the `BestBooks` component, if they are not, render the `Login` component */
             }
+              </Route>
             </Switch>
+            
             <Switch>
             {this.props.auth0.isAuthenticated &&
               <Route exact path="/profile">

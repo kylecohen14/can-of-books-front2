@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import { withAuth0 } from '@auth/auth0-react';
+import { withAuth0 } from '@auth0/auth0-react';
 class Content extends React.Component {
   componentDidMount() {
     if(this.props.auth0.isAuthenticated) {
@@ -12,7 +12,7 @@ class Content extends React.Component {
           method: 'get',
           headers: {'Authorization': `Bearer ${jwt}`},
           baseURL: 'http://localhost:3000',
-          url: '/auth-test'
+          url: '/auth-test',
           // Need '/' on base uri???
         }
         axios(config)
@@ -27,5 +27,8 @@ class Content extends React.Component {
     )
   }
 }
+
+
+
 
 export default withAuth0(Content);

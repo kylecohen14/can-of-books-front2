@@ -7,10 +7,12 @@
     "@testing-library/jest-dom": "5.11.9",
     "@testing-library/react": "11.2.5",
     "@testing-library/user-event": "12.8.0",
+    "auth0": "^2.36.0",
     "auth0-react": "^3.1.0",
     "bootstrap": "4.6.0",
-    "react": "^17.0.1",
-    "react-bootstrap": "1.5.1",
+    "jsonwebtoken": "^8.5.1",
+    "react": "^17.0.2",
+    "react-bootstrap": "^1.5.1",
     "react-cookie": "4.0.3",
     "react-cookies": "0.1.1",
     "react-dom": "^17.0.1",
@@ -46,12 +48,12 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/DevJessParker/can-of-books-front.git"
+    "url": "git+https://github.com/DevJessParker/can-of-books-front2.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/DevJessParker/can-of-books-front/issues"
+    "url": "https://github.com/DevJessParker/can-of-books-front2/issues"
   }
 }

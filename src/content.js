@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import { withAutho0 } from '@auth/auth0-react';
+import { withAuth0 } from '@auth/auth0-react';
 class Content extends React.Component {
   componentDidMount() {
     if(this.props.auth0.isAuthenticated) {
@@ -11,8 +11,9 @@ class Content extends React.Component {
         const config = {
           method: 'get',
           headers: {'Authorization': `Bearer ${jwt}`},
-          baseURL: 'http://localhost:3001',
+          baseURL: 'http://localhost:3000',
           url: '/auth-test'
+          // Need '/' on base uri???
         }
         axios(config)
           .then(results => console.log('from /auth-test route backend', results))

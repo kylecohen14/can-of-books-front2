@@ -12,7 +12,7 @@ class Content extends React.Component {
           method: 'get',
           headers: {'Authorization': `Bearer ${jwt}`},
           baseURL: 'http://localhost:3000',
-          url: '/auth-test',
+          url: '/profile',
           // Need '/' on base uri???
         }
         axios(config)

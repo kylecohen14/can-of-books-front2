@@ -1,30 +1,30 @@
 import React from 'react';
 import { withAuth0 } from '@auth0/auth0-react';
 import { Card, ListGroupItem, ListGroup } from 'react-bootstrap';
-import axios from 'axios';
+// import axios from 'axios';
 
 class Profile extends React.Component {
-  componentDidMount() {
-    console.log(this.props.auth0.isAuthenticated);
-    if(this.props.auth0.isAuthenticated) {
-      this.props.auth0.getIdTokenClaims()
-      .then(res => {
-        console.log(res);
-        const jwt = res.__raw;
+  // componentDidMount() {
+  //   console.log(this.props.auth0.isAuthenticated);
+  //   if(this.props.auth0.isAuthenticated) {
+  //     this.props.auth0.getIdTokenClaims()
+  //     .then(res => {
+  //       console.log(res);
+  //       const jwt = res.__raw;
 
-        const config = {
-          method: 'get',
-          headers: {'Authorization': `Bearer ${jwt}`},
-          baseURL: 'https://can-of-books-kyle.netlify.app',
-          url: '/auth-test' // Probably going to have to change this
-        }
+  //       const config = {
+  //         method: 'get',
+  //         headers: {'Authorization': `Bearer ${jwt}`},
+  //         baseURL: 'https://can-of-books-kyle.netlify.app',
+  //         url: '/auth-test' // Probably going to have to change this
+  //       }
 
-        axios(config)
-          .then(results => console.log('came from my /auth-test route on the backend', results))
-          .catch(err => console.error(err))
-      });
-    }
-  }
+  //       axios(config)
+  //         .then(results => console.log('came from my /auth-test route on the backend', results))
+  //         .catch(err => console.error(err))
+  //     });
+  //   }
+  // }
   render() {
     const { user } = this.props.auth0;
     return (

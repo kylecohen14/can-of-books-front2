@@ -42,7 +42,7 @@ class MyFavoriteBooks extends React.Component {
   }
 
   handleGetBooks() { 
-    axios.get('https://can-of-books-front2.herokuapp.com')
+    axios.get('https://can-of-books-front2.herokuapp.com/books')
     .then(books => {
       this.setState({ bookstorage: books.data })
       console.log('_STATE_', this.state.bookstorage)
@@ -55,7 +55,7 @@ class MyFavoriteBooks extends React.Component {
     const description = e.target.description.value;
     const status = e.target.status.value;
     const email = e.target.email.value;
-    await axios.post('https://can-of-books-front2.herokuapp.com', {name:name, description:description, status:status, email:email})
+    await axios.post('https://can-of-books-front2.herokuapp.com/books', {name:name, description:description, status:status, email:email})
     this.handleGetBooks()
   }
 

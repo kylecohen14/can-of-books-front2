@@ -15,7 +15,7 @@ class Profile extends React.Component {
         const config = {
           method: 'get',
           headers: {'Authorization': `Bearer ${jwt}`},
-          baseURL: 'http://localhost:3000',
+          baseURL: 'https://can-of-books-kyle.netlify.app',
           url: '/auth-test' // Probably going to have to change this
         }
 

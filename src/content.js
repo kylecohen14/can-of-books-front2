@@ -1,26 +1,26 @@
 import React from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 import { withAuth0 } from '@auth0/auth0-react';
 class Content extends React.Component {
-  componentDidMount() {
-    if(this.props.auth0.isAuthenticated) {
-      this.props.auth0.getIdTokenClaims()
-      .then(res => {
-        const jwt = res.__raw;
+  // componentDidMount() {
+  //   if(this.props.auth0.isAuthenticated) {
+  //     this.props.auth0.getIdTokenClaims()
+  //     .then(res => {
+  //       const jwt = res.__raw;
 
-        const config = {
-          method: 'get',
-          headers: {'Authorization': `Bearer ${jwt}`},
-          baseURL: 'https://can-of-books-kyle.netlify.app',
-          url: '/profile',
-          // Need '/' on base uri???
-        }
-        axios(config)
-          .then(results => console.log('from /auth-test route backend', results))
-          .catch(err => console.error(err))
-      })
-    }
-  }
+  //       const config = {
+  //         method: 'get',
+  //         headers: {'Authorization': `Bearer ${jwt}`},
+  //         baseURL: 'https://can-of-books-kyle.netlify.app',
+  //         url: '/profile',
+  //         // Need '/' on base uri???
+  //       }
+  //       axios(config)
+  //         .then(results => console.log('from /auth-test route backend', results))
+  //         .catch(err => console.error(err))
+  //     })
+  //   }
+  // }
 
  
   // addBook = (e) => {

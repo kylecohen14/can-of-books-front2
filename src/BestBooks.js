@@ -4,6 +4,7 @@ import Jumbotron from 'react-bootstrap/Jumbotron';
 import './BestBooks.css';
 import { withAuth0 } from '@auth0/auth0-react';
 import axios from 'axios';
+import AddBook from './AddBook.js';
 // import { throwStatement } from '@babel/types';
 // import { Carousel, Card } from 'react-bootstrap';
 
@@ -13,6 +14,7 @@ class MyFavoriteBooks extends React.Component {
 
     this.state = {
       bookstorage: []
+
     }
   }
   // componentDidMount() {
@@ -34,19 +36,36 @@ class MyFavoriteBooks extends React.Component {
   //     })
   //   }
   // }
+
   componentDidMount() {
-    // axios.get('INSERT NETLIFYURL', {name: this.state.name})
+   this.handleGetBooks()
+  }
+
+  handleGetBooks() { 
     axios.get('http://localhost:3333/books')
     .then(books => {
       this.setState({ bookstorage: books.data })
       console.log('_STATE_', this.state.bookstorage)
-    })
+  })}
+
+  handleSubmit = async (e) => {
+    e.preventDefault()
+    console.log(e.target)
+    const name = e.target.name.value;
+    const description = e.target.description.value;
+    const status = e.target.status.value;
+    const email = e.target.email.value;
+    await axios.post('http://localhost:3333/books', {name:name, description:description, status:status, email:email})
+    this.handleGetBooks()
   }
+
   render() {
     // const { user } = this.props.auth0;
-    console.log(this.state.bookstorage)
+    console.log(this.props.auth0)
     return(
-      this.state.bookstorage.map((bookstorage, idx) => {
+      <>
+      <AddBook email = {this.props.auth0.user.email} handleSubmit={this.handleSubmit}/>
+      {this.state.bookstorage.length > 0 ? this.state.bookstorage.map((bookstorage, idx) => {
         return <Jumbotron key={idx}>
        {bookstorage.books.map((book, idx) => {
          return(
@@ -61,7 +80,9 @@ class MyFavoriteBooks extends React.Component {
         </div>)
        })}   
     </Jumbotron>
-  }))
+  }): <h2>no books</h2>}
+  </>
+  ) 
 }
 }
 
